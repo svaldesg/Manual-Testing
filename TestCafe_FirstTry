@@ -1,0 +1,16 @@
+import { Selector } from 'testcafe';
+
+fixture `VisualTesting`
+    .page `https://ten4.azurewebsites.net/msweb/#/login`;
+
+test('Login_Test', async t => {
+    await t
+        .click(Selector('.dx-texteditor-input[name="userName"]'))
+        .typeText(Selector('.dx-texteditor-input[name="userName"]'), 'ben')
+        .click(Selector('.dx-texteditor-input[name="password"]'))
+        .typeText(Selector('.dx-texteditor-input[name="password"]'), 'ben')
+        .click(Selector('.dx-button-content'))
+        .navigateTo('https://ten4.azurewebsites.net/msweb/#/hd/')
+        .wait(5000)
+        .takeScreenshot('C:/');
+});
